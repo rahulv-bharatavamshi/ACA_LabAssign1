@@ -1,0 +1,19 @@
+	AREA myprog,CODE,READONLY
+	ENTRY
+Main
+	MOV R2,#5
+	LDR R1,=VAL
+	LDR R1,[R1]
+	LDR R0,=0X40000000
+loop
+    
+	STR R1,[R0]
+	LDR R1,R1,#0X1
+	SUB R2,R2,#1
+	CMP R2,#0
+	ADD R0,#1
+	BNE loop
+STOP B STOP
+VAL DCD 2, 5, 7, 9, 3
+	ALIGN
+	END 
